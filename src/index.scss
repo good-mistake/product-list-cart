@@ -1,0 +1,557 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+$grid-size: 33%;
+$bg-color: #fcf8f5;
+$bg-white: white;
+$border-color: #333;
+$position-rel: relative;
+$color: #27100c;
+$colorMoney: #b86a4e;
+$cursor: pointer;
+$border-background: #c83b0e;
+$second-color: #ffd6cc;
+$font-14: 14px;
+$font-w600: 600;
+$font-w700: 700;
+body {
+  margin: 0;
+  font-family: "Red Hat Text", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg-color;
+}
+.App {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 3rem 1rem;
+  h1 {
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+  .content {
+    width: 65%;
+
+    .gridContainer {
+      display: grid;
+      grid-template-columns: repeat(3, $grid-size);
+      grid-template-rows: repeat(3, auto);
+      .gridItem {
+        background-color: $bg-color;
+        border-radius: 8px;
+        margin: 0 1rem 1rem 0;
+
+        > div {
+          display: flex;
+          justify-content: center;
+          position: $position-rel;
+
+          > span {
+            position: absolute;
+            top: 92%;
+            span {
+              margin-left: 5px;
+            }
+
+            .cartStatus,
+            .addToCart {
+              display: flex;
+              width: 9rem;
+              border-radius: 25px;
+              padding: 12px 0rem;
+            }
+            .cartStatus {
+              background-color: $border-background;
+              justify-content: space-between;
+              align-items: baseline;
+              color: $second-color;
+              button {
+                background-color: inherit;
+                border: none;
+              }
+              .minus,
+              .plus {
+                cursor: pointer;
+                border: 2.5px solid $second-color;
+                border-radius: 50%;
+                aspect-ratio: 1/1;
+                padding: 1px 3px;
+              }
+              .minus {
+                margin-left: 10px;
+                svg {
+                  margin-bottom: 3px;
+                }
+              }
+              .plus {
+                margin-right: 10px;
+              }
+              .minus:hover,
+              .plus:hover {
+                background-color: white;
+                .pathColor {
+                  fill: $border-background !important;
+                }
+              }
+            }
+            .addToCart {
+              cursor: $cursor;
+              align-items: center;
+              justify-content: center;
+              background-color: $bg-white;
+              border: 0.25px solid #a29796;
+              border-radius: 25px;
+              color: $color;
+              font-weight: $font-w700;
+              font-size: $font-14;
+            }
+            .addToCart:hover {
+              border-color: $border-background;
+            }
+          }
+        }
+
+        img {
+          width: 100%;
+          border-radius: 8px;
+        }
+        .border {
+          border: 3px solid $colorMoney;
+          animation: expandContract 2s infinite;
+        }
+        h2,
+        h4,
+        p {
+          margin: 5px 0;
+        }
+        h4 {
+          color: #81726f;
+          margin-top: 2.5rem;
+          font-weight: 400;
+        }
+        h2 {
+          color: $color;
+          font-size: 1rem;
+        }
+        p {
+          color: #b86a4e;
+          font-weight: $font-w700;
+        }
+      }
+    }
+  }
+  .cart {
+    background-color: $bg-white;
+    padding: 15px 25px;
+    width: 25%;
+    border-radius: 10px;
+    .emptyCart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        color: $color;
+        font-weight: $font-w600;
+        font-size: $font-14;
+        background-color: white;
+      }
+    }
+    .cartInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #dbdbdb;
+      margin: 1.25rem 0;
+      h4,
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        li:nth-child(1) {
+          margin-right: 15px;
+          color: $colorMoney;
+          font-weight: $font-w700;
+        }
+        li:nth-child(2) {
+          color: #978883;
+          margin-right: 10px;
+          font-size: $font-14;
+        }
+        li:nth-child(3) {
+          color: #9b8684;
+          font-weight: 650;
+          font-size: 15px;
+        }
+      }
+      button {
+        cursor: $cursor;
+        background-color: inherit;
+        border: 2px solid #b1a7a8;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+        padding: 1px 3px;
+        svg {
+          margin-top: 2px;
+        }
+      }
+      button:hover {
+        border-color: #221816;
+        .pathRemoveColor {
+          fill: #221816;
+        }
+      }
+      h4 {
+        color: $color;
+        margin: 10px 0;
+        font-weight: 660;
+        font-size: 16px;
+      }
+    }
+    h3 {
+      color: $colorMoney;
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+    h6 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      color: $color;
+      font-weight: 450;
+      font-size: 15px;
+      margin: 1.5rem 0;
+      span {
+        font-size: 1.5rem;
+        font-weight: $font-w700;
+      }
+    }
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $bg-color;
+      padding: 20px 0;
+      border-radius: 5px;
+      color: $color;
+      font-size: $font-14;
+      font-weight: 500;
+      svg {
+        margin-right: 5px;
+      }
+      span {
+        font-weight: 800;
+        margin: 0 5px;
+      }
+    }
+    .confirmBtn {
+      width: 100%;
+      border: none;
+      padding: 1rem 0;
+      font-size: 1rem;
+      font-weight: $font-w600;
+      margin-top: 1rem;
+      border-radius: 30px;
+      color: $second-color;
+      background-color: $border-background;
+      cursor: $cursor;
+    }
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .confirmedOrder {
+    position: absolute;
+    z-index: 1000;
+    top: 20%;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    width: 600px;
+    background-color: $bg-white;
+    button {
+      width: 100%;
+      padding: 20px 0;
+      margin-top: 1rem;
+      border-radius: 50px;
+      border: none;
+      background-color: $border-background;
+      color: $bg-color;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: $cursor;
+    }
+    .orders {
+      background-color: $bg-color;
+      color: $color;
+      border-radius: 15px;
+      .total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $color;
+        font-weight: 400;
+        span {
+          font-size: 1.5rem;
+          font-weight: $font-w700;
+        }
+      }
+    }
+    .orders div:not(first) {
+      border-top: 1px solid #f1efed;
+    }
+    h2 {
+      font-size: 2.5rem;
+      color: $color;
+      margin: 12px 0 0 0;
+    }
+    > p {
+      margin-bottom: 1.5rem;
+      color: #a78e83;
+    }
+    .total {
+      padding: 2rem 1.5rem;
+    }
+    .priceAndImg {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 1.5rem 0 1.5rem;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        li:nth-child(2) {
+          margin-left: 10px;
+          font-weight: $font-w600;
+          div {
+            color: $border-background;
+            font-weight: $font-w600;
+
+            margin-top: 10px;
+            span {
+              color: #9b8684;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+      > li {
+        font-size: 1rem;
+        font-weight: $font-w600;
+        color: $color;
+      }
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 7px;
+    }
+  }
+}
+@keyframes expandContract {
+  0% {
+    border-color: #b86a4e;
+  }
+
+  50% {
+    border-color: #d69f8f;
+  }
+
+  100% {
+    border-color: #8e4a3a;
+  }
+}
+@media (max-width: 1200px) {
+  .cartStatus,
+  .addToCart {
+    width: 8rem !important;
+    padding: 9px 0rem !important;
+  }
+  .gridItem {
+    > div {
+      > span {
+        top: 90% !important;
+      }
+    }
+  }
+  .App .content .gridContainer .gridItem h2,
+  .App .content .gridContainer .gridItem h4 {
+    font-size: $font-14;
+  }
+  .App .cart p {
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+
+  .App .cart h6 span {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 850px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    .cart {
+      width: 80% !important;
+      .emptyCart p {
+        font-size: 18px;
+      }
+      p {
+        flex-direction: row;
+        font-size: 1rem;
+        padding: 20px 0;
+      }
+    }
+    .confirmedOrder {
+      width: 80%;
+      top: 94%;
+      transform: translate(-0%, -50%);
+      padding: 2rem 1.25rem;
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+  .App .content {
+    width: 70%;
+    .gridContainer {
+      display: flex !important;
+      flex-direction: column;
+      .gridItem {
+        margin: 0 0rem 1rem 0;
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .cartStatus,
+    .addToCart {
+      width: 11rem !important;
+      padding: 12px 0rem !important;
+    }
+    .gridItem > div > span {
+      top: 93% !important;
+    }
+    .gridContainer .gridItem h2,
+    .gridContainer .gridItem h4 {
+      font-size: 1.25rem !important;
+    }
+  }
+}
+@media (max-width: 398px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 1rem;
+    .cart {
+      width: 95% !important;
+      padding: 15px 0.5rem;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h6 span {
+        font-size: 1rem;
+      }
+      .emptyCart p {
+        font-size: $font-14;
+        font-weight: 400;
+      }
+      p {
+        font-size: 12px;
+        padding: 20px;
+        flex-wrap: wrap;
+        span {
+          font-weight: $font-w700;
+        }
+      }
+      .cartInfo {
+        h4 {
+          font-weight: $font-w600;
+          font-size: 14px;
+        }
+        ul li:nth-child(3) {
+          font-weight: $font-w600;
+          font-size: $font-14;
+        }
+      }
+    }
+    .confirmedOrder {
+      width: 98%;
+      top: 100%;
+      border-radius: 10px 10px 0 0px;
+      transform: translate(-0%, -50%);
+      padding: 2rem 1.25rem;
+      > p {
+        font-size: $font-14;
+      }
+      .orders .total span {
+        font-size: 1.25rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      .priceAndImg {
+        padding: 1rem 1rem 0 1rem;
+        > li {
+          font-size: 15px;
+        }
+        ul li:nth-child(2) {
+          font-size: 13px;
+          div span {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+  .App .content {
+    width: 95%;
+    .gridContainer {
+      display: flex !important;
+      flex-direction: column;
+      .gridItem {
+        margin: 0 0rem 1rem 0;
+        p {
+          font-size: 1rem;
+        }
+        img {
+          border-radius: 15px;
+        }
+      }
+    }
+    .cartStatus,
+    .addToCart {
+      width: 10rem !important;
+    }
+    .gridItem > div > span {
+      top: 93% !important;
+    }
+    .gridContainer .gridItem h2 {
+      font-weight: $font-w600;
+    }
+    .gridContainer .gridItem h2,
+    .gridContainer .gridItem h4 {
+      font-size: 1rem !important;
+    }
+  }
+}
